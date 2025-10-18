@@ -17,13 +17,30 @@ Event organizers can create, view, update, and cancel events through a comprehen
 ### Ticket Booking Engine
 The heart of the system is its sophisticated ticket booking functionality. Customers can book tickets for specific events, selecting preferred seats when available. The booking process generates unique ticket numbers, handles payment calculations, and manages booking status transitions. The system supports various ticket operations including confirmation, cancellation, refund processing, check-in, and even ticket transfers between customers.
 
+## Security Features
+The application includes basic security validation with email format verification and phone number length checks. Input sanitization prevents common injection attacks, and the system maintains data integrity through proper transaction management.
+
 ## Business Logic and Validation
 The application implements extensive business rules including seat availability verification, duplicate booking prevention, event date validation, and status transition controls. Ticket refunds are only permitted for confirmed tickets before event start times, while transfers are restricted to active tickets that haven't been used or refunded. The system includes comprehensive error handling with meaningful error messages for all operational scenarios.
 
 ## API Design
 All endpoints follow RESTful conventions with appropriate HTTP methods and status codes. The API uses Data Transfer Objects (DTOs) for clean separation between persistence models and API contracts. Pagination support is implemented for list endpoints to ensure optimal performance with large datasets. The system maintains consistent naming conventions and URL structures across all resources.
 
+## Missing Security Features
+- No user authentication or authorization system
+- No password protection for customer accounts  
+- No API key or token-based security
+- No role-based access control
+- No rate limiting or DDoS protection
+
+## Missing Business Features
+- No payment processing integration
+- No email notifications or confirmations
+- No seat locking mechanism to prevent duplicates
+- No booking expiration system
+- No audit logging capabilities
+
 ## Data Management
 The application employs Spring Data JPA for efficient database operations with built-in transaction management. Entity relationships are properly mapped with appropriate JPA annotations, ensuring data integrity through foreign key constraints and cascade operations. Unique constraints prevent duplicate bookings and ensure data consistency across all operations.
 
-This ticket booking system represents a production-ready foundation for event management platforms, with extensible architecture that can accommodate additional features such as payment integration, email notifications, and advanced reporting capabilities.
+This ticket booking system represents a solid foundation for event management platforms, with extensible architecture that can accommodate additional features such as payment integration, email notifications, and advanced security in future versions.
